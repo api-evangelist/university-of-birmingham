@@ -1,0 +1,102 @@
+---
+aid: university-of-birmingham
+name: University of Birmingham
+description: >-
+  The University of Birmingham is a public research university in Birmingham,
+  United Kingdom, and a founding member of the Russell Group, ranked #94 in the
+  QS World University Rankings 2025. Its public developer/API footprint is
+  limited and decentralized: there is no central developer portal or published
+  API program. Confirmed machine-readable interfaces are concentrated in the
+  library/research-repository ecosystem (EPrints-based repositories exposing
+  OAI-PMH endpoints) plus a small open research API from the English
+  Constructicon linguistics project. The institutional GitHub organization
+  exists but currently exposes no public repositories.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/university-of-birmingham/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - United Kingdom
+  - Research
+  - Open Data
+  - Library
+  - OAI-PMH
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: university-of-birmingham:edata-oai
+    name: UBIRA eData OAI-PMH
+    description: >-
+      Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)
+      interface for UBIRA eData, the University's EPrints-based research data
+      repository. Returns Dublin Core metadata for archived, DOI-assigned
+      datasets. No authentication required.
+    humanURL: https://edata.bham.ac.uk/
+    baseURL: https://edata.bham.ac.uk/cgi/oai2
+    tags: [ Research Data, Repository, OAI-PMH, EPrints, Open Data ]
+    properties:
+      - type: Documentation
+        url: https://edata.bham.ac.uk/policies.html
+  - aid: university-of-birmingham:etheses-oai
+    name: UBIRA eTheses OAI-PMH
+    description: >-
+      OAI-PMH metadata harvesting interface for the University of Birmingham
+      eTheses EPrints repository, providing access to metadata for full-text
+      electronic theses produced by research postgraduates. No authentication
+      required.
+    humanURL: https://etheses.bham.ac.uk/
+    baseURL: https://etheses.bham.ac.uk/cgi/oai2
+    tags: [ Theses, Repository, OAI-PMH, EPrints, Open Access ]
+    properties:
+      - type: Documentation
+        url: https://etheses.bham.ac.uk/
+  - aid: university-of-birmingham:epapers-oai
+    name: ePapers OAI-PMH
+    description: >-
+      OAI-PMH metadata harvesting interface for the University of Birmingham
+      ePapers EPrints repository, holding open access working papers, technical
+      reports and other grey literature. No authentication required.
+    humanURL: https://epapers.bham.ac.uk/
+    baseURL: https://epapers.bham.ac.uk/cgi/oai2
+    tags: [ Working Papers, Repository, OAI-PMH, EPrints, Open Access ]
+    properties:
+      - type: Documentation
+        url: https://epapers.bham.ac.uk/
+  - aid: university-of-birmingham:english-constructicon
+    name: English Constructicon API
+    description: >-
+      Open research API for the English Constructicon project, a construction
+      grammar database hosted at the University of Birmingham. Exposes
+      JSON endpoints for listing constructions and retrieving a single
+      construction by id. No authentication required.
+    humanURL: https://englishconstructicon.bham.ac.uk/database/api/
+    baseURL: https://englishconstructicon.bham.ac.uk/database/api/
+    tags: [ Research, Linguistics, Construction Grammar, Open Data ]
+    properties:
+      - type: Documentation
+        url: https://englishconstructicon.bham.ac.uk/database/api/
+common:
+  - type: Website
+    url: https://www.birmingham.ac.uk/
+  - type: GitHub
+    url: https://github.com/University-of-Birmingham
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/university-of-birmingham/
+  - type: Twitter
+    url: https://x.com/unibirmingham
+  - type: Plans
+    url: plans/university-of-birmingham-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/university-of-birmingham-rate-limits.yml
+  - type: FinOps
+    url: finops/university-of-birmingham-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
