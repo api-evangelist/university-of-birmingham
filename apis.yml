@@ -80,6 +80,8 @@ apis:
     properties:
       - type: Documentation
         url: https://englishconstructicon.bham.ac.uk/database/api/
+      - type: OpenAPI
+        url: openapi/university-of-birmingham-english-constructicon.yaml
 common:
   - type: Website
     url: https://www.birmingham.ac.uk/

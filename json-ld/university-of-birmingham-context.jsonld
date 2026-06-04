@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "uob": "https://englishconstructicon.bham.ac.uk/vocab#",
+    "@vocab": "https://englishconstructicon.bham.ac.uk/vocab#",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "Organization": "schema:CollegeOrUniversity",
+    "University": {
+      "@id": "schema:CollegeOrUniversity"
+    },
+    "Construction": "uob:Construction",
+    "id": "schema:identifier",
+    "construction_id": "uob:constructionId",
+    "pattern": "uob:pattern",
+    "form": "uob:form",
+    "meaning": "uob:meaning",
+    "usagenotes": "uob:usageNotes",
+    "author": "schema:author"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "University of Birmingham",
+  "url": "https://www.birmingham.ac.uk/",
+  "description": "Public research university in Birmingham, United Kingdom, and a founding member of the Russell Group. Cataloged machine-readable interfaces include the English Constructicon research API and EPrints-based OAI-PMH repositories."
+}

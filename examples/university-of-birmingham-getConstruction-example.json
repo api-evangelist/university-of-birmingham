@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "construction_id": "Vthat0",
+  "pattern": "V that",
+  "name": "\"V that\"",
+  "description": "This is a very general construction abstracting over a range of more specific uses. In this construction, a person or entity (the Agent) is put in relation with a particular event or situation (a Fact), expressed as a clause optionally introduced by 'that'. The nature of this relation depends on the verb that is used in the construction: communication, cognition, emotion, and several others.",
+  "author": null,
+  "usagenotes": null,
+  "form": "NP Verb (that) Clause",
+  "meaning": "An Agent relates to a Fact in a way specified by the verb."
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-birmingham/main/json-structure/university-of-birmingham-construction-structure.json",
+  "name": "Construction",
+  "description": "JSON Structure description of an English Constructicon construction record.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32", "description": "Sequential integer identifier." },
+    "construction_id": { "type": "string", "description": "Human-readable construction code." },
+    "pattern": { "type": ["string", "null"], "description": "Short surface pattern label." },
+    "name": { "type": "string", "description": "Display name of the construction." },
+    "description": { "type": ["string", "null"], "description": "Long-form prose description." },
+    "author": { "type": ["string", "null"], "description": "Attributed author." },
+    "usagenotes": { "type": ["string", "null"], "description": "Usage notes such as register." },
+    "form": { "type": ["string", "null"], "description": "Syntactic form template." },
+    "meaning": { "type": ["string", "null"], "description": "Semantic description." }
+  },
+  "required": ["id", "construction_id", "name"]
+}

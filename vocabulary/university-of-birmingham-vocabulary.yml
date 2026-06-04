@@ -1,0 +1,41 @@
+vocabulary:
+  name: University of Birmingham API Vocabulary
+  description: >-
+    Controlled vocabulary for the machine-readable interfaces cataloged for the
+    University of Birmingham, covering the English Constructicon construction
+    grammar API and the EPrints-based OAI-PMH research repositories.
+  version: 1.0.0
+  terms:
+    - term: Construction
+      definition: >-
+        A form-meaning pairing recorded in the English Constructicon database,
+        the primary object returned by the /constructions endpoint.
+      tags: [ Linguistics, Construction Grammar, Object ]
+    - term: construction_id
+      definition: Human-readable code identifying a construction, e.g. Vthat0.
+      tags: [ Identifier, Field ]
+    - term: form
+      definition: Syntactic form template of a construction, e.g. "NP Verb (that) Clause".
+      tags: [ Linguistics, Field ]
+    - term: meaning
+      definition: Semantic description of what a construction expresses.
+      tags: [ Linguistics, Field ]
+    - term: pattern
+      definition: Short surface pattern label for a construction; may be null.
+      tags: [ Linguistics, Field ]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting, the XML-based
+        protocol exposed by the UBIRA eData, eTheses and ePapers EPrints
+        repositories for harvesting Dublin Core metadata.
+      tags: [ Protocol, Repository, Metadata ]
+    - term: EPrints
+      definition: >-
+        Open-source repository software (version 3.4.0) running the University's
+        research-output repositories.
+      tags: [ Repository, Software ]
+    - term: Dublin Core
+      definition: >-
+        The default metadata schema returned by the OAI-PMH endpoints for
+        archived datasets, theses and working papers.
+      tags: [ Metadata, Standard ]

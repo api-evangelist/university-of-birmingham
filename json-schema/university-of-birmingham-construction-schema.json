@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-birmingham/main/json-schema/university-of-birmingham-construction-schema.json",
+  "title": "Construction",
+  "description": "A single entry in the University of Birmingham English Constructicon construction grammar database, as returned by GET /constructions.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Sequential integer identifier."
+    },
+    "construction_id": {
+      "type": "string",
+      "description": "Human-readable construction code, e.g. Vthat0."
+    },
+    "pattern": {
+      "type": ["string", "null"],
+      "description": "Short surface pattern label, may be null."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the construction."
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Long-form prose description, may be null."
+    },
+    "author": {
+      "type": ["string", "null"],
+      "description": "Attributed author, may be null."
+    },
+    "usagenotes": {
+      "type": ["string", "null"],
+      "description": "Usage notes such as register, may be null."
+    },
+    "form": {
+      "type": ["string", "null"],
+      "description": "Syntactic form template."
+    },
+    "meaning": {
+      "type": ["string", "null"],
+      "description": "Semantic description of the construction."
+    }
+  },
+  "required": ["id", "construction_id", "name"],
+  "additionalProperties": false
+}

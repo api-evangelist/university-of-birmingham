@@ -1,0 +1,112 @@
+openapi: 3.0.3
+info:
+  title: English Constructicon API
+  description: >-
+    Open research API for the English Constructicon project, a construction
+    grammar database hosted at the University of Birmingham (Research Software
+    Group, College of Arts and Law). Exposes read-only JSON endpoints for
+    listing constructions and retrieving a single construction by id. No
+    authentication required. Spec derived from the published API documentation
+    and the live response of the /constructions endpoint.
+  version: 1.0.0
+  contact:
+    name: Florent Perek
+    email: f.b.perek@bham.ac.uk
+  license:
+    name: University of Birmingham
+    url: https://englishconstructicon.bham.ac.uk/
+servers:
+  - url: https://englishconstructicon.bham.ac.uk/database/api
+    description: Production
+paths:
+  /constructions:
+    get:
+      operationId: listConstructions
+      summary: List all constructions
+      description: >-
+        Returns the full list of constructions in the English Constructicon
+        database as a JSON array. Observed live to return 101 entries.
+      responses:
+        '200':
+          description: A JSON array of construction objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Construction'
+  /constructions/{id}:
+    get:
+      operationId: getConstruction
+      summary: Retrieve a single construction by id
+      description: >-
+        Returns a single construction record identified by its integer id, as
+        documented on the project API page (/api/constructions/<id>).
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Integer identifier of the construction.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single construction object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Construction'
+        '404':
+          description: No construction exists with the supplied id.
+components:
+  schemas:
+    Construction:
+      type: object
+      description: >-
+        A single entry in the English Constructicon construction grammar
+        database.
+      properties:
+        id:
+          type: integer
+          description: Sequential integer identifier.
+          example: 1
+        construction_id:
+          type: string
+          description: Human-readable construction code.
+          example: Vthat0
+        pattern:
+          type: string
+          nullable: true
+          description: Short surface pattern label, may be null.
+          example: V that
+        name:
+          type: string
+          description: Display name of the construction (may contain quoted text).
+          example: '"V that"'
+        description:
+          type: string
+          nullable: true
+          description: Long-form prose description of the construction, may be null.
+        author:
+          type: string
+          nullable: true
+          description: Attributed author, may be null.
+        usagenotes:
+          type: string
+          nullable: true
+          description: Usage notes such as register, may be null.
+          example: literary
+        form:
+          type: string
+          nullable: true
+          description: Syntactic form template.
+          example: NP Verb (that) Clause
+        meaning:
+          type: string
+          nullable: true
+          description: Semantic description of the construction.
+          example: An Agent relates to a Fact in a way specified by the verb.
+      required:
+        - id
+        - construction_id
+        - name

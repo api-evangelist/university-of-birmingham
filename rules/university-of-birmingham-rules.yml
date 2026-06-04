@@ -1,0 +1,38 @@
+formats:
+  - oas3
+rules:
+  uob-info-contact:
+    description: API info should include a contact (Constructicon API lists a project contact email).
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  uob-construction-schema-required:
+    description: Construction schema must keep id, construction_id and name as required fields.
+    given: $.components.schemas.Construction
+    severity: error
+    then:
+      field: required
+      function: truthy
+  uob-operationid-present:
+    description: Every operation must declare an operationId (listConstructions, getConstruction).
+    given: $.paths[*][get,post,put,delete]
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  uob-json-only:
+    description: Responses are JSON; observed media type is application/json.
+    given: $.paths[*][get].responses[*].content
+    severity: warn
+    then:
+      field: application/json
+      function: truthy
+  uob-no-auth:
+    description: The English Constructicon API is open and requires no security scheme.
+    given: $
+    severity: info
+    then:
+      field: security
+      function: falsy

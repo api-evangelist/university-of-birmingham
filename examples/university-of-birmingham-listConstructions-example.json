@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "construction_id": "Vthat0",
+    "pattern": "V that",
+    "name": "\"V that\"",
+    "description": "This is a very general construction abstracting over a range of more specific uses. In this construction, a person or entity (the Agent) is put in relation with a particular event or situation (a Fact), expressed as a clause optionally introduced by 'that'. The nature of this relation depends on the verb that is used in the construction: communication (the Agent verbally expresses the Fact as a message: say, claim), cognition (the Agent has the Fact in mind: think, realise), emotion (the Agent has a particular emotional reaction to the Fact: like, fear), and several others.",
+    "author": null,
+    "usagenotes": null,
+    "form": "NP Verb (that) Clause",
+    "meaning": "An Agent relates to a Fact in a way specified by the verb."
+  },
+  {
+    "id": 2,
+    "construction_id": "Vthat1",
+    "pattern": null,
+    "name": "Communication \"V that\"",
+    "description": null,
+    "author": null,
+    "usagenotes": null,
+    "form": "NP Verb (that) Clause",
+    "meaning": "A Communicator conveys a Message, by verbal or non-verbal means."
+  },
+  {
+    "id": 4,
+    "construction_id": "Vthat12",
+    "pattern": null,
+    "name": "Request \"V that\"",
+    "description": null,
+    "author": null,
+    "usagenotes": null,
+    "form": "NP Verb that Clause(mandative)",
+    "meaning": "A Speaker utters a Message asking for some action to be done."
+  }
+]
