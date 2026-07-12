@@ -83,6 +83,8 @@ apis:
       - type: OpenAPI
         url: openapi/university-of-birmingham-english-constructicon.yaml
 common:
+  - type: DomainSecurity
+    url: security/university-of-birmingham-domain-security.yml
   - type: Website
     url: https://www.birmingham.ac.uk/
   - type: GitHub
