@@ -12,9 +12,21 @@ description: >-
   Constructicon linguistics project. The institutional GitHub organization
   exists but currently exposes no public repositories.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-birmingham.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-birmingham/refs/heads/main/apis.yml
 tags:
   - Education
@@ -29,59 +41,69 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: university-of-birmingham:edata-oai
-    name: UBIRA eData OAI-PMH
-    description: >-
-      Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)
-      interface for UBIRA eData, the University's EPrints-based research data
-      repository. Returns Dublin Core metadata for archived, DOI-assigned
-      datasets. No authentication required.
-    humanURL: https://edata.bham.ac.uk/
-    baseURL: https://edata.bham.ac.uk/cgi/oai2
-    tags: [ Research Data, Repository, OAI-PMH, EPrints, Open Data ]
-    properties:
-      - type: Documentation
-        url: https://edata.bham.ac.uk/policies.html
-  - aid: university-of-birmingham:etheses-oai
-    name: UBIRA eTheses OAI-PMH
-    description: >-
-      OAI-PMH metadata harvesting interface for the University of Birmingham
-      eTheses EPrints repository, providing access to metadata for full-text
-      electronic theses produced by research postgraduates. No authentication
-      required.
-    humanURL: https://etheses.bham.ac.uk/
-    baseURL: https://etheses.bham.ac.uk/cgi/oai2
-    tags: [ Theses, Repository, OAI-PMH, EPrints, Open Access ]
-    properties:
-      - type: Documentation
-        url: https://etheses.bham.ac.uk/
-  - aid: university-of-birmingham:epapers-oai
-    name: ePapers OAI-PMH
-    description: >-
-      OAI-PMH metadata harvesting interface for the University of Birmingham
-      ePapers EPrints repository, holding open access working papers, technical
-      reports and other grey literature. No authentication required.
-    humanURL: https://epapers.bham.ac.uk/
-    baseURL: https://epapers.bham.ac.uk/cgi/oai2
-    tags: [ Working Papers, Repository, OAI-PMH, EPrints, Open Access ]
-    properties:
-      - type: Documentation
-        url: https://epapers.bham.ac.uk/
-  - aid: university-of-birmingham:english-constructicon
-    name: English Constructicon API
-    description: >-
-      Open research API for the English Constructicon project, a construction
-      grammar database hosted at the University of Birmingham. Exposes
-      JSON endpoints for listing constructions and retrieving a single
-      construction by id. No authentication required.
-    humanURL: https://englishconstructicon.bham.ac.uk/database/api/
-    baseURL: https://englishconstructicon.bham.ac.uk/database/api/
-    tags: [ Research, Linguistics, Construction Grammar, Open Data ]
-    properties:
-      - type: Documentation
-        url: https://englishconstructicon.bham.ac.uk/database/api/
-      - type: OpenAPI
-        url: openapi/university-of-birmingham-english-constructicon.yaml
+- aid: university-of-birmingham:edata-oai
+  name: UBIRA eData OAI-PMH
+  description: >-
+    Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) interface for UBIRA eData, the
+    University's EPrints-based research data repository. Returns Dublin Core metadata for archived, DOI-assigned
+    datasets. No authentication required.
+  humanURL: https://edata.bham.ac.uk/
+  baseURL: https://edata.bham.ac.uk/cgi/oai2
+  tags:
+  - Research Data
+  - Repository
+  - OAI-PMH
+  - EPrints
+  - Open Data
+  properties:
+  - type: Documentation
+    url: https://edata.bham.ac.uk/policies.html
+- aid: university-of-birmingham:etheses-oai
+  name: UBIRA eTheses OAI-PMH
+  description: >-
+    OAI-PMH metadata harvesting interface for the University of Birmingham eTheses EPrints repository,
+    providing access to metadata for full-text electronic theses produced by research postgraduates. No
+    authentication required.
+  humanURL: https://etheses.bham.ac.uk/
+  baseURL: https://etheses.bham.ac.uk/cgi/oai2
+  tags:
+  - Theses
+  - Repository
+  - OAI-PMH
+  - EPrints
+  - Open Access
+  properties:
+  - type: Documentation
+    url: https://etheses.bham.ac.uk/
+- aid: university-of-birmingham:epapers-oai
+  name: ePapers OAI-PMH
+  description: >-
+    OAI-PMH metadata harvesting interface for the University of Birmingham ePapers EPrints repository,
+    holding open access working papers, technical reports and other grey literature. No authentication
+    required.
+  humanURL: https://epapers.bham.ac.uk/
+  baseURL: https://epapers.bham.ac.uk/cgi/oai2
+  tags:
+  - Working Papers
+  - Repository
+  - OAI-PMH
+  - EPrints
+  - Open Access
+  properties:
+  - type: Documentation
+    url: https://epapers.bham.ac.uk/
+- aid: university-of-birmingham:university-of-birmingham-constructions-api
+  name: University of Birmingham Constructions API
+  description: The Constructions API from University of Birmingham — 2 operation(s) for constructions.
+  humanURL: https://edata.bham.ac.uk/
+  baseURL: https://edata.bham.ac.uk/cgi/oai2
+  tags:
+  - Constructions
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-birmingham-constructions-api-openapi.yml
+  - type: Documentation
+    url: https://englishconstructicon.bham.ac.uk/database/api/
 common:
   - type: AgenticAccess
     url: agentic-access/university-of-birmingham-agentic-access.yml
