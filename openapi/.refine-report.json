@@ -1,0 +1,14 @@
+{
+  "provider": "university-of-birmingham",
+  "sources": [
+    "university-of-birmingham-constructions-api-openapi.yml"
+  ],
+  "outputs": [
+    "university-of-birmingham-constructions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
