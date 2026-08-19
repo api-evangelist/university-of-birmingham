@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "English Constructicon Constructions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Constructions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all constructions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://englishconstructicon.bham.ac.uk/database/api/constructions"
+          },
+          "docs": "Returns the full list of constructions in the English Constructicon database as a JSON array. Observed live to return 101 entries."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single construction by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://englishconstructicon.bham.ac.uk/database/api/constructions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Integer identifier of the construction."
+              }
+            ]
+          },
+          "docs": "Returns a single construction record identified by its integer id, as documented on the project API page (/api/constructions/<id>)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

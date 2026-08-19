@@ -1,0 +1,228 @@
+{
+  "item": [
+    {
+      "id": "bb44a457-7f28-448f-8af5-dd97ba48caf1",
+      "name": "Constructions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9068e766-759a-4567-932d-807da62d691e",
+          "name": "List all constructions",
+          "request": {
+            "name": "List all constructions",
+            "description": {
+              "content": "Returns the full list of constructions in the English Constructicon database as a JSON array. Observed live to return 101 entries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "constructions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f0bed7d-d7d1-4a0f-9321-a72185c8e1dc",
+              "name": "A JSON array of construction objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "constructions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"construction_id\": \"Vthat0\",\n    \"name\": \"\\\"V that\\\"\",\n    \"pattern\": \"V that\",\n    \"description\": \"string\",\n    \"author\": \"string\",\n    \"usagenotes\": \"literary\",\n    \"form\": \"NP Verb (that) Clause\",\n    \"meaning\": \"An Agent relates to a Fact in a way specified by the verb.\"\n  },\n  {\n    \"id\": 1,\n    \"construction_id\": \"Vthat0\",\n    \"name\": \"\\\"V that\\\"\",\n    \"pattern\": \"V that\",\n    \"description\": \"string\",\n    \"author\": \"string\",\n    \"usagenotes\": \"literary\",\n    \"form\": \"NP Verb (that) Clause\",\n    \"meaning\": \"An Agent relates to a Fact in a way specified by the verb.\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bfa673f-4dcf-4039-a939-5f50fdc20553",
+          "name": "Retrieve a single construction by id",
+          "request": {
+            "name": "Retrieve a single construction by id",
+            "description": {
+              "content": "Returns a single construction record identified by its integer id, as documented on the project API page (/api/constructions/<id>).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "constructions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Integer identifier of the construction."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83cc8c11-d35a-44c1-8c3f-a228bcb22875",
+              "name": "A single construction object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "constructions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Integer identifier of the construction."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"construction_id\": \"Vthat0\",\n  \"name\": \"\\\"V that\\\"\",\n  \"pattern\": \"V that\",\n  \"description\": \"string\",\n  \"author\": \"string\",\n  \"usagenotes\": \"literary\",\n  \"form\": \"NP Verb (that) Clause\",\n  \"meaning\": \"An Agent relates to a Fact in a way specified by the verb.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aea06324-38f4-463c-970a-4ca300c13601",
+              "name": "No construction exists with the supplied id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "constructions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Integer identifier of the construction."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://englishconstructicon.bham.ac.uk/database/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "238f6afd-0270-4474-b91e-5d82d7aa349b",
+    "name": "English Constructicon Constructions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Open research API for the English Constructicon project, a construction grammar database hosted at the University of Birmingham (Research Software Group, College of Arts and Law). Exposes read-only JSON endpoints for listing constructions and retrieving a single construction by id. No authentication required. Spec derived from the published API documentation and the live response of the /constructions endpoint.\n\nContact Support:\n Name: Florent Perek\n Email: f.b.perek@bham.ac.uk",
+      "type": "text/plain"
+    }
+  }
+}
