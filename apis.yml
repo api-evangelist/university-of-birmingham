@@ -1,41 +1,49 @@
 ---
 aid: university-of-birmingham
 name: University of Birmingham
+x-type: university
+x-category: Public Research University
 description: >-
-  The University of Birmingham is a public research university in Birmingham,
-  United Kingdom, and a founding member of the Russell Group, ranked #94 in the
-  QS World University Rankings 2025. Its public developer/API footprint is
-  limited and decentralized: there is no central developer portal or published
-  API program. Confirmed machine-readable interfaces are concentrated in the
-  library/research-repository ecosystem (EPrints-based repositories exposing
-  OAI-PMH endpoints) plus a small open research API from the English
-  Constructicon linguistics project. The institutional GitHub organization
-  exists but currently exposes no public repositories.
+  The University of Birmingham is a public research university in Birmingham, United Kingdom, a
+  founding member of the Russell Group and of the Universitas 21 network. It operates no central
+  developer portal, publishes no API programme, issues no API keys, and a subdomain sweep of
+  birmingham.ac.uk and bham.ac.uk found nothing at api., data., developer., opendata., open., dev.,
+  portal. or git. The programmable footprint it does have is real but decentralised and departmental,
+  and it sits on the institution's second registrable domain, bham.ac.uk: three EPrints repositories
+  (UBIRA eData, UBIRA eTheses and ePapers) each exposing an OAI-PMH 2.0 provider plus an EPrints REST
+  interface; a Shibboleth SAML 2.0 identity provider registered in the UK Access Management
+  Federation; a self-hosted GitLab on the BEAR research-computing estate whose /api/v4 project
+  listing answers keyless; and one small open research API from the English Constructicon
+  construction-grammar project in the College of Arts and Law — the only surface here with an OpenAPI
+  description, and that description is ours, not theirs. Three further surfaces that carry the
+  University's name are vendor platforms the institution is a tenant on, recorded as tenancies and
+  not as Birmingham engineering: an Elsevier Pure research portal, an Ex Libris Primo library
+  discovery layer, and an Instructure Canvas VLE.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
+  commercial: false
   callable_host: true
   label: Hosted service · you call their endpoint
   confidence: high
   source:
   - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - probe
+  generated: '2026-08-30'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: none
   trial: false
-  try_now: false
-  public: false
-  label: Free
-  confidence: medium
+  try_now: true
+  public: true
+  label: Free · no registration
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
+  - probe
+  generated: '2026-08-30'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-birmingham.png
@@ -45,20 +53,32 @@ tags:
   - Higher Education
   - University
   - United Kingdom
+  - Russell Group
   - Research
-  - Open Data
-  - Library
+  - Research Data
+  - Open Access
+  - Repository
   - OAI-PMH
+  - Identity Federation
+  - Library
+  - Research Computing
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: university-of-birmingham:edata-oai
-  name: UBIRA eData OAI-PMH
+- aid: university-of-birmingham:edata
+  name: UBIRA eData (EPrints OAI-PMH + REST)
+  x-operator: institution
   description: >-
-    Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) interface for UBIRA eData, the
-    University's EPrints-based research data repository. Returns Dublin Core metadata for archived, DOI-assigned
-    datasets. No authentication required.
+    UBIRA eData is the University of Birmingham's own EPrints research-data repository, running on
+    Birmingham infrastructure (edata.bham.ac.uk resolves to 147.188.217.239, the University's own
+    address space). It exposes an OAI-PMH 2.0 provider — Identify returns repositoryName "UBIRA
+    eData" and adminEmail research-data@contacts.bham.ac.uk, ListMetadataFormats offers oai_dc, didl
+    and rdf — plus the EPrints REST interface at /rest/ and an OpenSearch description document.
+    Deposits are assigned DOIs under the University's own DataCite prefix 10.25500, registered to the
+    DataCite client "University of Birmingham - eData". The repository software is EPrints (open
+    source, not a hosted vendor tenancy) and the endpoint, the host and the records are the
+    institution's.
   humanURL: https://edata.bham.ac.uk/
   baseURL: https://edata.bham.ac.uk/cgi/oai2
   tags:
@@ -67,15 +87,21 @@ apis:
   - OAI-PMH
   - EPrints
   - Open Data
+  - DataCite
   properties:
   - type: Documentation
     url: https://edata.bham.ac.uk/policies.html
-- aid: university-of-birmingham:etheses-oai
-  name: UBIRA eTheses OAI-PMH
+  - type: APIReference
+    url: https://edata.bham.ac.uk/rest/
+- aid: university-of-birmingham:etheses
+  name: UBIRA eTheses (EPrints OAI-PMH)
+  x-operator: institution
   description: >-
-    OAI-PMH metadata harvesting interface for the University of Birmingham eTheses EPrints repository,
-    providing access to metadata for full-text electronic theses produced by research postgraduates. No
-    authentication required.
+    OAI-PMH 2.0 metadata harvesting interface for the University of Birmingham eTheses EPrints
+    repository, holding full-text electronic theses produced by research postgraduates. Identify
+    returns repositoryName "UBIRA ETheses", adminEmail ubira@lists.bham.ac.uk and an
+    earliestDatestamp of 2019-01-17. No authentication required. An EPrints REST interface is also
+    live at /rest/.
   humanURL: https://etheses.bham.ac.uk/
   baseURL: https://etheses.bham.ac.uk/cgi/oai2
   tags:
@@ -87,12 +113,16 @@ apis:
   properties:
   - type: Documentation
     url: https://etheses.bham.ac.uk/
-- aid: university-of-birmingham:epapers-oai
-  name: ePapers OAI-PMH
+  - type: APIReference
+    url: https://etheses.bham.ac.uk/rest/
+- aid: university-of-birmingham:epapers
+  name: ePapers Repository (EPrints OAI-PMH)
+  x-operator: institution
   description: >-
-    OAI-PMH metadata harvesting interface for the University of Birmingham ePapers EPrints repository,
-    holding open access working papers, technical reports and other grey literature. No authentication
-    required.
+    OAI-PMH 2.0 metadata harvesting interface for the University of Birmingham ePapers EPrints
+    repository, holding open-access working papers, technical reports and other grey literature.
+    Identify returns repositoryName "ePapers Repository", adminEmail ubira@lists.bham.ac.uk and an
+    earliestDatestamp of 2012-12-07. No authentication required.
   humanURL: https://epapers.bham.ac.uk/
   baseURL: https://epapers.bham.ac.uk/cgi/oai2
   tags:
@@ -104,31 +134,200 @@ apis:
   properties:
   - type: Documentation
     url: https://epapers.bham.ac.uk/
-- aid: university-of-birmingham:university-of-birmingham-constructions-api
-  name: University of Birmingham Constructions API
-  description: The Constructions API from University of Birmingham — 2 operation(s) for constructions.
-  humanURL: https://edata.bham.ac.uk/
-  baseURL: https://edata.bham.ac.uk/cgi/oai2
+- aid: university-of-birmingham:identity-provider
+  name: University of Birmingham Identity Provider (SAML 2.0 / Shibboleth)
+  x-operator: institution
+  description: >-
+    The University's own Shibboleth SAML 2.0 Identity Provider. The entity descriptor is served
+    directly by IT Services and carries their maintenance history in XML comments; it declares
+    SingleSignOnService endpoints for HTTP-POST, HTTP-Redirect, POST-SimpleSign and the SAML 1.x
+    Shibboleth AuthnRequest profile, SingleLogoutService and an AttributeService over SOAP. The
+    entityID https://idp.bham.ac.uk/shibboleth is registered in the UK Access Management Federation
+    aggregate with OrganizationName "University of Birmingham" and shibmd:Scope bham.ac.uk. This is
+    federated institutional single sign-on, not a self-serve developer credential — there is no way
+    for an unaffiliated caller to obtain access through it.
+  humanURL: https://idp2.bham.ac.uk/idp/shibboleth
+  baseURL: https://idp2.bham.ac.uk/idp
+  tags:
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - Single Sign-On
+  - UK Access Management Federation
+  properties:
+  - type: IdentityFederation
+    url: https://idp2.bham.ac.uk/idp/shibboleth
+- aid: university-of-birmingham:gitlab
+  name: BEAR GitLab (self-hosted, /api/v4)
+  x-operator: institution
+  description: >-
+    A GitLab instance the University runs itself on the BEAR (Birmingham Environment for Academic
+    Research) estate — gitlab.bham.ac.uk resolves through proxy-vrrp-1.bear.bham.ac.uk to
+    147.188.x, Birmingham address space, not to gitlab.com or any hosted GitLab tenancy. The GitLab
+    REST API is live at /api/v4 and GET /api/v4/projects answers keyless with real public research
+    projects; /api/v4/version returns 401 as expected for an unauthenticated caller. The deployment
+    is the institution's; the API contract is GitLab's product surface, so no OpenAPI is saved here.
+    Worth recording precisely because it inverts the usual pattern: the web UI is entirely gated —
+    /, /explore, /explore/projects and /help all 302 to /users/sign_in — while GET /api/v4/projects
+    answers an anonymous caller with real project records. The institution publishes no documentation
+    for this surface; /help is behind the sign-in wall, so no Documentation pointer is claimed.
+  humanURL: https://gitlab.bham.ac.uk/
+  baseURL: https://gitlab.bham.ac.uk/api/v4
+  tags:
+  - Research Computing
+  - Source Control
+  - GitLab
+  - Self-Hosted
+- aid: university-of-birmingham:english-constructicon
+  name: English Constructicon API
+  x-operator: institution
+  description: >-
+    An open research API from the English Constructicon project, a construction-grammar database
+    built in the College of Arts and Law with the University's Research Software Group and hosted on
+    the institution's own englishconstructicon.bham.ac.uk. Two read-only JSON operations: GET
+    /constructions returns the full database (101 entries observed live on 2026-08-30) and GET
+    /constructions/{id}/ returns one record. No authentication, no key, no rate-limit policy
+    published. The OpenAPI in this repository was written by API Evangelist from the project's own
+    API documentation page and observed live responses — it is not published by the University.
+  humanURL: https://englishconstructicon.bham.ac.uk/
+  baseURL: https://englishconstructicon.bham.ac.uk/database/api
   tags:
   - Constructions
+  - Linguistics
+  - Construction Grammar
+  - Open Research
   properties:
-  - type: OpenAPI
-    url: openapi/university-of-birmingham-constructions-api-openapi.yml
   - type: Documentation
     url: https://englishconstructicon.bham.ac.uk/database/api/
+  - type: OpenAPI
+    url: openapi/university-of-birmingham-constructions-api-openapi.yml
+  - type: x-openapi-original
+    url: openapi/_original/university-of-birmingham-english-constructicon.yaml
+  - type: JSONSchema
+    url: json-schema/university-of-birmingham-construction-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-birmingham-construction-structure.json
+  - type: Examples
+    url: examples/university-of-birmingham-listConstructions-example.json
+  - type: Examples
+    url: examples/university-of-birmingham-getConstruction-example.json
+  - type: Examples
+    url: examples/university-of-birmingham-examples.yml
+  - type: OpenCollection
+    url: collections/university-of-birmingham-constructions-api.opencollection.json
+  - type: PostmanCollection
+    url: collections/university-of-birmingham-constructions-api.postman_collection.json
+  - type: SpectralRules
+    url: rules/university-of-birmingham-rules.yml
+  - type: ErrorCatalog
+    url: errors/university-of-birmingham-errors.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-birmingham-lifecycle.yml
+- aid: university-of-birmingham:pure-research-portal
+  name: Elsevier Pure research portal (Birmingham tenancy)
+  x-operator: tenant
+  description: >-
+    research.birmingham.ac.uk is the University's research information portal. It is an Elsevier Pure
+    tenancy — the hostname CNAMEs to birmingham-live.elsevierpure.com and on to
+    eu.prod.elsevierpure.com, and the served pages carry Pure and Elsevier branding throughout. The
+    research records, the profiles and the DOIs are Birmingham's; the platform, the API contract and
+    the engineering are Elsevier's. Pure's web-service endpoints are not open here: /ws/api and
+    /ws/oai return 404 and 500 respectively to an unauthenticated caller. Recorded as a tenancy; no
+    Pure contract is saved under this institution.
+  humanURL: https://research.birmingham.ac.uk/
+  tags:
+  - Research Information
+  - Pure
+  - Elsevier
+  - Tenant
+  properties:
+  - type: ResearchRepository
+    url: https://research.birmingham.ac.uk/
+- aid: university-of-birmingham:findit-primo
+  name: FindIt@Bham library discovery (Ex Libris Primo tenancy)
+  x-operator: tenant
+  description: >-
+    FindIt@Bham is the University's library discovery layer, running on Ex Libris Primo —
+    findit.bham.ac.uk CNAMEs to birmingham.primo.exlibrisgroup.com and on to
+    eu00.primo.exlibrisgroup.com, and the served page is the Primo Explore Angular application. A
+    second Birmingham Primo entity, https://bham-primo-stg.hosted.exlibrisgroup.com/shib, appears as
+    a service provider in the UK Access Management Federation metadata. The collection is
+    Birmingham's; the discovery API is Ex Libris's. Recorded as a tenancy; no Ex Libris contract is
+    saved under this institution.
+  humanURL: https://findit.bham.ac.uk/
+  tags:
+  - Library
+  - Discovery
+  - Primo
+  - Ex Libris
+  - Tenant
+  properties:
+  - type: LibraryCatalog
+    url: https://findit.bham.ac.uk/
+- aid: university-of-birmingham:canvas-vle
+  name: Canvas virtual learning environment (Instructure tenancy)
+  x-operator: tenant
+  description: >-
+    canvas.bham.ac.uk is the University's virtual learning environment, an Instructure Canvas
+    tenancy — the hostname CNAMEs to birmingham-vanity.instructure.com. Canvas ships an LTI platform
+    and an LMS REST API, but both are Instructure's contract running under a Birmingham vanity
+    hostname, and access is gated behind institutional login. Recorded as a tenancy; no Instructure
+    contract is saved under this institution and no LTI conformance is claimed on Birmingham's
+    behalf.
+  humanURL: https://canvas.bham.ac.uk/
+  tags:
+  - Learning Management
+  - Canvas
+  - Instructure
+  - LTI
+  - Tenant
 common:
-  - type: AgenticAccess
-    url: agentic-access/university-of-birmingham-agentic-access.yml
-  - type: DomainSecurity
-    url: security/university-of-birmingham-domain-security.yml
   - type: Website
     url: https://www.birmingham.ac.uk/
-  - type: GitHub
+  - type: Documentation
+    url: https://englishconstructicon.bham.ac.uk/database/api/
+  - type: APIReference
+    url: https://edata.bham.ac.uk/rest/
+  - type: GitHubOrganization
     url: https://github.com/University-of-Birmingham
   - type: LinkedIn
     url: https://www.linkedin.com/school/university-of-birmingham/
   - type: Twitter
     url: https://x.com/unibirmingham
+  - type: Blog
+    url: https://blog.bham.ac.uk/
+  - type: PrivacyPolicy
+    url: https://www.birmingham.ac.uk/privacy
+  - type: TermsOfService
+    url: https://www.birmingham.ac.uk/legal
+  - type: IdentityFederation
+    url: https://idp2.bham.ac.uk/idp/shibboleth
+  - type: ResearchRepository
+    url: https://edata.bham.ac.uk/
+  - type: LibraryCatalog
+    url: https://findit.bham.ac.uk/
+  - type: ResearchComputing
+    url: https://bear-apps.bham.ac.uk/
+  - type: AIPolicy
+    url: https://www.birmingham.ac.uk/libraries/education-excellence/gai
+  - type: Conformance
+    url: conformance/university-of-birmingham-conformance.yml
+  - type: Authentication
+    url: authentication/university-of-birmingham-authentication.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-birmingham-lifecycle.yml
+  - type: ErrorCatalog
+    url: errors/university-of-birmingham-errors.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-birmingham-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-birmingham-context.jsonld
+  - type: SpectralRules
+    url: rules/university-of-birmingham-jsonschema-spectral-rules.yml
+  - type: AgenticAccess
+    url: agentic-access/university-of-birmingham-agentic-access.yml
+  - type: DomainSecurity
+    url: security/university-of-birmingham-domain-security.yml
   - type: Plans
     url: plans/university-of-birmingham-plans-pricing.yml
   - type: RateLimits
@@ -137,6 +336,66 @@ common:
     url: finops/university-of-birmingham-finops.yml
   - type: Review
     url: review.yml
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    The University of Birmingham operates no developer portal, no API programme and no API key
+    issuance, and a subdomain sweep across both of its registrable domains (birmingham.ac.uk and
+    bham.ac.uk) returned DNS for only one candidate — gitlab.bham.ac.uk — with api., data.,
+    developer., opendata., open., dev., portal., sandbox. and git. all failing to resolve. What it
+    does operate was found by probing rather than by link presence: three EPrints repositories with
+    live OAI-PMH 2.0 providers and EPrints REST interfaces, a Shibboleth SAML 2.0 identity provider
+    registered in the UK Access Management Federation, a self-hosted GitLab on the BEAR estate whose
+    /api/v4/projects answers keyless while its entire web UI sits behind /users/sign_in, and the English Constructicon open research API. Three vendor
+    tenancies carrying the University's name — Elsevier Pure at research.birmingham.ac.uk, Ex Libris
+    Primo at findit.bham.ac.uk and Instructure Canvas at canvas.bham.ac.uk — were resolved by CNAME
+    and are recorded as tenancies, not as Birmingham surfaces. No vendor contract is saved in this
+    repository. The single OpenAPI here describes the Constructicon API and was written by API
+    Evangelist from the project's documentation and live responses; the University publishes no
+    machine-readable API description of its own. Its GitHub organisation exists and is public but
+    holds zero public repositories.
+  evidence:
+    - url: https://edata.bham.ac.uk/cgi/oai2?verb=Identify
+      status: 200
+    - url: https://etheses.bham.ac.uk/cgi/oai2?verb=Identify
+      status: 200
+    - url: https://epapers.bham.ac.uk/cgi/oai2?verb=Identify
+      status: 200
+    - url: https://edata.bham.ac.uk/rest/
+      status: 200
+    - url: https://idp2.bham.ac.uk/idp/shibboleth
+      status: 200
+    - url: http://metadata.ukfederation.org.uk/ukfederation-metadata.xml
+      status: 200
+    - url: https://gitlab.bham.ac.uk/api/v4/projects?per_page=1
+      status: 200
+    - url: https://gitlab.bham.ac.uk/api/v4/version
+      status: 401
+    - url: https://englishconstructicon.bham.ac.uk/database/api/constructions
+      status: 200
+    - url: https://englishconstructicon.bham.ac.uk/database/api/constructions/999999/
+      status: 404
+    - url: https://api.datacite.org/prefixes/10.25500
+      status: 200
+    - url: https://research.birmingham.ac.uk/
+      status: 200
+    - url: https://research.birmingham.ac.uk/ws/api
+      status: 404
+    - url: https://research.birmingham.ac.uk/ws/oai?verb=Identify
+      status: 500
+    - url: https://findit.bham.ac.uk/
+      status: 200
+    - url: https://canvas.bham.ac.uk/
+      status: 200
+    - url: https://www.birmingham.ac.uk/llms.txt
+      status: 404
+    - url: https://www.birmingham.ac.uk/.well-known/security.txt
+      status: 404
+    - url: https://api.github.com/orgs/University-of-Birmingham/repos
+      status: 200
+  generated: '2026-08-30'
+  method: probed
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
