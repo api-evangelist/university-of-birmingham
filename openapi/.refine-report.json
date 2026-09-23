@@ -1,7 +1,7 @@
 {
   "provider": "university-of-birmingham",
   "sources": [
-    "university-of-birmingham-constructions-api-openapi.yml"
+    "_original/university-of-birmingham-english-constructicon.yaml"
   ],
   "outputs": [
     "university-of-birmingham-constructions-api-openapi.yml"
@@ -9,6 +9,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "university-of-birmingham-english-constructicon.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "university-of-birmingham-english-constructicon.yaml: tagged paths GET /constructions -> Constructions",
+    "university-of-birmingham-english-constructicon.yaml: tagged paths GET /constructions/{id}/ -> Constructions",
+    "university-of-birmingham-english-constructicon.yaml: declared missing tag: Constructions",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "university-of-birmingham-constructions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,3 +1,7 @@
+# authorship: written by API Evangelist from the English Constructicon project's public API
+# documentation page and observed live responses. NOT published by the University of Birmingham.
+# x-method: generated
+# x-source-url: https://englishconstructicon.bham.ac.uk/database/api/
 openapi: 3.0.3
 info:
   title: English Constructicon API
@@ -35,7 +39,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Construction'
-  /constructions/{id}:
+  /constructions/{id}/:
     get:
       operationId: getConstruction
       summary: Retrieve a single construction by id

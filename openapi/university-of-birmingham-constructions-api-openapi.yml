@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: English Constructicon Constructions API
   description: Open research API for the English Constructicon project, a construction grammar database hosted at the University of Birmingham (Research Software Group, College of Arts and Law). Exposes read-only JSON endpoints for listing constructions and retrieving a single construction by id. No authentication required. Spec derived from the published API documentation and the live response of the /constructions endpoint.
@@ -31,11 +31,11 @@ paths:
                   $ref: '#/components/schemas/Construction'
       tags:
       - Constructions
-  /constructions/{id}:
+  /constructions/{id}/:
     get:
       operationId: getConstruction
       summary: Retrieve a single construction by id
-      description: Returns a single construction record identified by its integer id, as documented on the project API page (/api/constructions/<id>).
+      description: Returns a single construction record identified by its integer id, as documented on the project API page (/api/constructions/).
       parameters:
       - name: id
         in: path
@@ -69,8 +69,9 @@ components:
           description: Human-readable construction code.
           example: Vthat0
         pattern:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Short surface pattern label, may be null.
           example: V that
         name:
@@ -78,26 +79,31 @@ components:
           description: Display name of the construction (may contain quoted text).
           example: '"V that"'
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Long-form prose description of the construction, may be null.
         author:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Attributed author, may be null.
         usagenotes:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Usage notes such as register, may be null.
           example: literary
         form:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Syntactic form template.
           example: NP Verb (that) Clause
         meaning:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Semantic description of the construction.
           example: An Agent relates to a Fact in a way specified by the verb.
       required:

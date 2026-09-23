@@ -1,0 +1,51 @@
+generated: '2026-08-30'
+method: harvested
+x-capture-method: probed
+authorship: harvested by API Evangelist from live responses; the payloads are the project's own data,
+  the index and its commentary are ours.
+source: https://englishconstructicon.bham.ac.uk/database/api
+provider: University of Birmingham
+providerId: university-of-birmingham
+description: >-
+  Index and provenance record for the example payloads in this directory. The University of
+  Birmingham publishes no example catalogue and no OpenAPI, so these are verbatim captures of live
+  responses from the English Constructicon API, taken with an ordinary browser User-Agent and no
+  credentials. They are the API's real output, not synthesised payloads. Both were re-verified on
+  2026-08-30.
+examples:
+  - id: listConstructions
+    file: university-of-birmingham-listConstructions-example.json
+    operation: listConstructions
+    kind: response
+    method: probed
+    url: https://englishconstructicon.bham.ac.uk/database/api/constructions
+    status: 200
+    content_type: application/json
+    detail: >-
+      Full collection response. The live endpoint returned 101 objects and 37,093 bytes on
+      2026-08-30; the file in this directory is a truncated capture kept for readability. Object keys
+      observed live: id, construction_id, pattern, name, description, author, usagenotes, form,
+      meaning.
+  - id: getConstruction
+    file: university-of-birmingham-getConstruction-example.json
+    operation: getConstruction
+    kind: response
+    method: probed
+    url: https://englishconstructicon.bham.ac.uk/database/api/constructions/1/
+    status: 200
+    content_type: application/json
+    detail: >-
+      Single-record response. Note the trailing slash: the slashless form 301-redirects to it.
+error_examples:
+  - id: notFound
+    kind: response
+    method: probed
+    url: https://englishconstructicon.bham.ac.uk/database/api/constructions/999999/
+    status: 404
+    content_type: application/json
+    body: '{"detail":"No Construction matches the given query."}'
+    detail: Recorded in errors/university-of-birmingham-errors.yml rather than as a separate file.
+gaps:
+  - The University publishes no request/response examples for any surface it operates.
+  - The OAI-PMH providers return XML that is fully specified by OAI-PMH 2.0; no examples are captured
+    here because the protocol, not the institution, defines the shape.
