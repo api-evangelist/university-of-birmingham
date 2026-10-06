@@ -63,7 +63,7 @@ tags:
   - Library
   - Research Computing
 created: '2026-06-03'
-modified: '2026-08-30'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: university-of-birmingham:edata
@@ -305,6 +305,8 @@ apis:
   - LTI
   - Tenant
 common:
+  - url: https://www.birmingham.ac.uk/news
+    type: Blog
   - type: Website
     url: https://www.birmingham.ac.uk/
   - type: Documentation
