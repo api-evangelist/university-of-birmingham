@@ -181,6 +181,11 @@ apis:
   baseURL: https://gitlab.bham.ac.uk/api/v4
   tags:
   - Research Computing
+  - Version Control
+  - GitLab
+  - Self-Hosted
+  tags_raw:
+  - Research Computing
   - Source Control
   - GitLab
   - Self-Hosted
@@ -293,7 +298,7 @@ apis:
     behalf.
   humanURL: https://canvas.bham.ac.uk/
   tags:
-  - Learning Management
+  - LMS
   - Canvas
   - Instructure
   - LTI
